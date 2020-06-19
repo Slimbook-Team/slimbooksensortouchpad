@@ -1,0 +1,5 @@
+src/slimbook-sensor-touchpad /usr/bin/
+src/slimbooksensortouchpad-sudo /etc/sudoers.d/
+src/.xbindkeysrc /usr/share/slimbooksensortouchpad/
+
+

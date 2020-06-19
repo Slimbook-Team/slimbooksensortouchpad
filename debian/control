@@ -1,0 +1,13 @@
+Source: slimbooksensortouchpad
+Section: utils
+Priority: extra
+Maintainer: slimbook <sat@slimbook.es>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+Homepage: <http://slimbook.es>
+
+Package: slimbooksensortouchpad
+Architecture: all
+Depends: xbindkeys
+Description: set your touchpad
+ On/Off in your touchpad!

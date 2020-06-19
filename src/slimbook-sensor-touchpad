@@ -1,0 +1,56 @@
+#!/bin/bash
+
+echo $1
+
+case "$1" in
+        on)
+            echo 'dentro del on'
+            sed -i '/"slimbook-sensor-touchpad/ c"/usr/bin/slimbook-sensor-touchpad xinput"' $HOME/.xbindkeysrc 
+            ;;
+        on-modprobe)
+            echo 'dentro del on-modprobe'
+            sed -i '/"slimbook-sensor-touchpad/ c"/usr/bin/slimbook-sensor-touchpad modprobe"' $HOME/.xbindkeysrc 
+            ;;
+         
+        off)
+            echo 'dentro del off'
+            sed -i '/"slimbook-sensor-touchpad/ c"#/usr/bin/slimbook-sensor-touchpad xinput"' $HOME/.xbindkeysrc            
+            ;;
+         
+        xinput)
+            echo 'dentro del xinput'
+            #metodo por xinput buscando el id por nombre, no falla Slimbook Gestures
+            #device=13
+            device=$(xinput list --id-only "UNIW0001:00 093A:1336 Touchpad")
+            state=$(xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$")
+
+            if [ $state == '1' ];then
+                xinput --disable "$device"
+            else
+                xinput --enable "$device"
+            fi
+            ;;
+        modprobe)
+            echo 'dentro del modprobe'
+            #metodo que desactiva modprobe pero falla Slimbook Gestures
+            array=( "i2c_hid" "hid_multitouch" "hid_generic" )
+            if grep -e "i2c_hid " /proc/modules > /dev/null ; then
+                for i in "${array[@]}"
+                do
+                    echo "Desactivando $i" 
+                    sudo modprobe -r $i
+                done
+            else 
+                for i in "${array[@]}"
+                do
+                    echo "Activando $i" 
+                    sudo modprobe $i
+                    libinput-gestures-setup restart
+                done
+            fi
+            ;;
+        *)
+            echo "Por favor use uno de los siguientes modos: on, on-modprobe, off, xinput, modprobe."
+            exit 1
+esac
+exit 0
