@@ -1,3 +1,15 @@
+slimbooksensortouchpad (0.3) focal; urgency=medium
+
+  * Any Slimbook latop
+
+ -- slimbook <sat@slimbook.es>  Mon, 24 Oct 2020 11:15:46 +0200
+
+slimbooksensortouchpad (0.2) focal; urgency=medium
+
+  * Fix AMD and Intel support
+
+ -- slimbook <sat@slimbook.es>  Mon, 17 Aug 2020 16:15:46 +0200
+
 slimbooksensortouchpad (0.1) focal; urgency=medium
 
   * New version

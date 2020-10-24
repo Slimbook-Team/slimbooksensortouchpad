@@ -1,0 +1,11 @@
+Package: slimbooksensortouchpad
+Version: 0.3
+Architecture: all
+Maintainer: slimbook <sat@slimbook.es>
+Installed-Size: 21
+Depends: xbindkeys
+Section: utils
+Priority: extra
+Homepage: <http://slimbook.es>
+Description: set your touchpad
+ On/Off in your touchpad!

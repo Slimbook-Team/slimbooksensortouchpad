@@ -1,0 +1,1 @@
+%sudo ALL=NOPASSWD: /sbin/modprobe -r i2c_hid, /sbin/modprobe -r hid_multitouch, /sbin/modprobe -r hid_generic, /sbin/modprobe i2c_hid, /sbin/modprobe hid_multitouch, /sbin/modprobe hid_generic
