@@ -21,10 +21,10 @@ case "$1" in
             echo 'dentro del xinput'
             #metodo por xinput buscando el id por nombre, no falla Slimbook Gestures
             #device=13
-            device=$(xinput list --id-only "UNIW0001:00 093A:1336 Touchpad")
+            #device=$(xinput list --id-only "UNIW0001:00 093A:1336 Touchpad")
+	    device=$(xinput list|grep -i "touchpad"|grep -Poe "(?<=id=)(\d+)")
             state=$(xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$")
-
-            if [ $state == '1' ];then
+            if [ $state == "1" ];then
                 xinput --disable "$device"
             else
                 xinput --enable "$device"
