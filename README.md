@@ -1,5 +1,10 @@
 # Slimbook Sensor Touchpad
 
+## This application has been replaced by slimbook_service
+
+
+
+
 Enable or disable the touchpad.
 
 Video:
